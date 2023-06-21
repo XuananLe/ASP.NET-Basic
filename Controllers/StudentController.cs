@@ -103,7 +103,7 @@ namespace BookService.Controllers
             var student = await _context.Students.FindAsync(id);
             if (student == null)
             {
-                return NotFound();
+                return BadRequest($"Could not find student with ID {id}");
             }
 
             _context.Students.Remove(student);
